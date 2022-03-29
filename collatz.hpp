@@ -1,6 +1,7 @@
 //here we will deklare everythig that we will use 
+#pragma once
 #include<list>
-
+#include<iostream>
 
 namespace cltz {
 
@@ -21,29 +22,30 @@ namespace cltz {
 
             //method to generate random number with number of digits as argument (for ginormous numbers, NECESSERY!) 
             //if a number already exists delete it
-            template<typename T>
-            bigNumber& genNumber(const T&);
+            bigNumber& genNumber(unsigned int);
             //method to push back a digit one number at a time (to increase the number one digit at a time)
             bigNumber& push_back(const char&);
             //method to pop last digit (not neccessary) 
             bigNumber& pop_back();
             //method to set number_ from a value (for smaller numbers, not necessary, will make testing a lot easier, will require for loops and division) 
             //if a number already exists delete it
-            template<typename T>
-            bigNumber& setNumber(const T&);
+            bigNumber& setNumber(const unsigned long long&);
 
             //operator to add a number (NECCESARY!) 
-            template<typename T>
-            bigNumber& operator+(const T&);
+            bigNumber& operator+(const long long&);
             //operator to substract a number (implement last because it might not be necessasry for this project)
-            template<typename T>
-            bigNumber& operator-(const T&);
+            bigNumber& operator-(const long long&);
             //operator to multiply (NECCESARY!)
-            template<typename T>
-            bigNumber& operator*(const T&);
+            bigNumber& operator*(const long long&);
             //operator to divide (NECCESARY!)
-            template<typename T>
-            bigNumber& operator/(const T&);
+            bigNumber& operator/(const long long&);
+
+            //getter for size
+            long long size() const { return number_.size(); }
+            //begin() method
+            std::list<char>::iterator begin() { return number_.begin(); }
+            //end() method
+            std::list<char>::iterator end() { return number_.end(); }
 
         private:
             std::list<char> number_;
@@ -54,4 +56,7 @@ namespace cltz {
     //possibly print number at each step
     //possibly draw graph of the process (there is a library like in python for that)
     void collatz_conjecture(bigNumber&);
+
+    //print bigNumber
+    std::ostream& operator<<(std::ostream&, bigNumber&);
 }
