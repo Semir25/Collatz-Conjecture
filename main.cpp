@@ -6,7 +6,7 @@
 int main() {
 
     cltz::bigNumber n;
-    n.setNumber(3);
+    n.setNumber(4);
     cltz::collatz_conjecture(n);
     return 0;
 }

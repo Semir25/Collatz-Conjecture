@@ -22,7 +22,7 @@ namespace cltz {
     bigNumber& bigNumber::setNumber(unsigned long long n) {
         number_.clear();
 
-        while(n > 0) {
+        while(n >= 0) {
             int tmp = n%10;
             n /= 10;
             number_.push_front('0' + tmp);
@@ -35,7 +35,7 @@ namespace cltz {
     std::ostream& operator<<(std::ostream& out, bigNumber& n) {
 
         for(auto it= n.begin(); it != n.end(); ++it) {
-            std::cout << (*it); 
+            out << (*it); 
         }
 
         return out;
@@ -122,14 +122,53 @@ namespace cltz {
 
         return *this;
     }
+
+    
+    bigNumber& bigNumber::operator/(long long n) {
+
+       auto it = begin(); 
+
+       int tmp = (*it) - '0';
+       while(it != end()) {
+
+           if(tmp / n == 0) {
+               //removing unecessery digits or setting to zero
+                if(it == begin()) {
+                    pop_front();
+                    it = begin();
+                } 
+                else {
+                    *it = '0';
+                    ++it;
+                }
+
+                tmp = tmp*10 + *it - '0';
+                
+           }
+           else {
+               *it = tmp/n + '0';
+               tmp = tmp%n;
+               ++it;
+               tmp = tmp*10 + *it - '0';
+
+           }
+       }
+
+       return *this;
+    }
+
+
 }
   void cltz::collatz_conjecture(bigNumber& number){
     bigNumber repetition;
     repetition.setNumber(0);
     while(number != 1){
-      if (number.is_even()) number = number/2;
-      else if(number.is_odd()) number = number*3 + 1;
-      repetition = repetition +1 ;
+      if (number.is_even()) {
+        number = number/2;
+      }else if(number.is_odd()){
+        number = number*3 + 1;
+      }
+      repetition = repetition + 1 ;
     }
     std::cout << repetition << std::endl;
   }

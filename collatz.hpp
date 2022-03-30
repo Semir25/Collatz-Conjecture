@@ -26,7 +26,15 @@ namespace cltz {
             //method to push back a digit one number at a time (to increase the number one digit at a time)
             bigNumber& push_back(const char&);
             //method to pop last digit (not neccessary) 
-            bigNumber& pop_back();
+            bigNumber& pop_back() {
+                number_.pop_back();
+                return *this;
+            }
+            //method to pop first digit
+            bigNumber& pop_front() {
+                number_.pop_front();
+                return *this;
+            }
             //method to set number_ from a value (for smaller numbers, not necessary, will make testing a lot easier, will require for loops and division) 
             //if a number already exists delete it
             bigNumber& setNumber(unsigned long long);
