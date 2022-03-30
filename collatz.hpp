@@ -51,6 +51,14 @@ namespace cltz {
             //end() method
             std::list<char>::iterator end() { return number_.end(); }
 
+            //check if even/odd
+            bool is_even() {
+                return (*(--end()))%2 == 0;
+            }
+            bool is_odd() {
+                return !is_even();
+            }
+
         private:
             std::list<char> number_;
 
@@ -59,7 +67,7 @@ namespace cltz {
     //function declaration for collatz-conjecture (takes out bigNumber as input, spits out on screen number of steps it takes to reach zero)
     //possibly print number at each step
     //possibly draw graph of the process (there is a library like in python for that)
-    void collatz_conjecture(bigNumber&);
+    int collatz_conjecture(bigNumber&);
 
     //print bigNumber
     std::ostream& operator<<(std::ostream&, bigNumber&);
