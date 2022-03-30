@@ -29,7 +29,7 @@ namespace cltz {
             bigNumber& pop_back();
             //method to set number_ from a value (for smaller numbers, not necessary, will make testing a lot easier, will require for loops and division) 
             //if a number already exists delete it
-            bigNumber& setNumber(const unsigned long long&);
+            bigNumber& setNumber(unsigned long long);
 
             //operator to add a number (NECCESARY!) 
             bigNumber& operator+(long long);

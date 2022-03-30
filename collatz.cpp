@@ -8,9 +8,23 @@ namespace cltz {
 
     bigNumber& bigNumber::genNumber(unsigned int n) {
         srand(time(0));
+        number_.clear();
 
         for(int i = 0; i < n; ++i) {
             number_.push_back('0' + rand()%10);
+        }
+
+        return *this;
+
+    } 
+
+    bigNumber& bigNumber::setNumber(unsigned long long n) {
+        number_.clear();
+
+        while(n > 0) {
+            int tmp = n%10;
+            n /= 10;
+            number_.push_front('0' + tmp);
         }
 
         return *this;
