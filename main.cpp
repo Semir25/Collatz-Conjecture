@@ -11,9 +11,5 @@ int main() {
 
     std::cout << n << std::endl;
 
-    n=n*32;
-
-    std::cout << n << std::endl;
-
     return 0;
 }

@@ -2,6 +2,7 @@
 #include"collatz.hpp"
 #include<cstdlib>
 #include<ctime>
+#include<cmath>
 
 namespace cltz {
     //the first element in the list will be the strongest digit and the last will be the weakest digit
@@ -63,7 +64,21 @@ namespace cltz {
       return *this;
     }
 
+    bool bigNumber::operator==(long long other){
+      int equals=0,number_of_digits=int(log10(other)+1);
+      if (this->size() != number_of_digits) return false;
+      for(auto it= --(this->end()); it != --(this->begin()); it--){
+        if (*it == (other%10 + '0')){
+          equals++;
+        } 
+        other /= 10;
+      }
+      if (equals == this->size())return true;
+      else return false;
+    }
 
+    bool bigNumber::operator!=(long long other){return !(this->operator==(other));}
+    
 
     bigNumber& bigNumber::operator+(long long n) {
 

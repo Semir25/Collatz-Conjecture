@@ -39,6 +39,10 @@ namespace cltz {
             bigNumber& operator*(long long);
             //operator to divide (NECCESARY!)
             bigNumber& operator/(long long);
+            //operator to check equality
+            bool operator==(long long);
+            //operator tp check inequality
+            bool operator!=(long long);
 
             //getter for size
             long long size() const { return number_.size(); }
