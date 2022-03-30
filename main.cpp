@@ -7,10 +7,13 @@ int main() {
 
     cltz::bigNumber n;
 
-    n.genNumber(1000);
+    n.genNumber(4);
 
     std::cout << n << std::endl;
 
+    n=n*32;
+
+    std::cout << n << std::endl;
 
     return 0;
 }

@@ -27,4 +27,27 @@ namespace cltz {
 
     }
 
-}
+    bigNumber& bigNumber::operator*(const long long& other){
+      int remained=0;
+      // iterating throuht the list from the end to the begging
+      for (auto it = --(this->end()); it != --(this->begin()); it--){
+        int temp =((*it - '0')*other) + remained%10;
+        remained /= 10;
+        while ( temp > 9){
+          temp -= 10;
+          remained++;
+        }
+        *it = '0' + temp;
+      }
+      //the list is already filled up to the beggining
+      while (remained > 0){
+        number_.push_front(char(remained%10 + '0'));
+        remained /=10;
+      }
+
+      return *this;
+    }
+
+} 
+
+
