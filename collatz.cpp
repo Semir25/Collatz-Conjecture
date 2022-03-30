@@ -123,5 +123,39 @@ namespace cltz {
         return *this;
     }
 
+    
+    bigNumber& bigNumber::operator/(long long n) {
+
+       auto it = begin(); 
+
+       int tmp = (*it) - '0';
+       while(it != end()) {
+
+           if(tmp / n == 0) {
+               //removing unecessery digits or setting to zero
+                if(it == begin()) {
+                    pop_front();
+                    it = begin();
+                } 
+                else {
+                    *it = '0';
+                    ++it;
+                }
+
+                tmp = tmp*10 + *it - '0';
+                
+           }
+           else {
+               *it = tmp/n + '0';
+               tmp = tmp%n;
+               ++it;
+               tmp = tmp*10 + *it - '0';
+
+           }
+       }
+
+       return *this;
+    }
+
 
 }

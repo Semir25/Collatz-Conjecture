@@ -7,11 +7,12 @@ int main() {
 
     cltz::bigNumber n;
 
-    n.genNumber(10);
+    n.setNumber(131569);
 
     std::cout << n << std::endl;
-    std::cout << n.is_even() << std::endl;
-    std::cout << n.is_odd() << std::endl;
+
+    n = n / 2234;
+    std::cout << n << std::endl;
 
     return 0;
 }
