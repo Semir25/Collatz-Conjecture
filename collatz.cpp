@@ -127,8 +127,8 @@ namespace cltz {
     bigNumber repetition;
     repetition.setNumber(0);
     while(number != 1){
-      if (number.is_even()) n = n/2;
-      else if(number.is_odd()) n = n*3 + 1;
+      if (number.is_even()) number = number/2;
+      else if(number.is_odd()) number = number*3 + 1;
       repetition = repetition +1 ;
     }
     std::cout << repetition << std::endl;

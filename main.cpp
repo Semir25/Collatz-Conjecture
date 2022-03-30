@@ -6,10 +6,7 @@
 int main() {
 
     cltz::bigNumber n;
-
-    n.setNumber(1);
-    if (n==1)n= n+1;
-    else if (n%2==0) n= n/2;
-    else n= n*3 +1 ;
+    n.setNumber(3);
+    cltz::collatz_conjecture(n);
     return 0;
 }

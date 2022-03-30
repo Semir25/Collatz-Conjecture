@@ -51,6 +51,14 @@ namespace cltz {
             //end() method
             std::list<char>::iterator end() { return number_.end(); }
 
+            //check if even/odd
+            bool is_even() {
+                return (*(--end()))%2 == 0;
+            }
+            bool is_odd() {
+                return !is_even();
+            }
+
         private:
             std::list<char> number_;
 
