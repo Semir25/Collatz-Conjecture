@@ -32,13 +32,13 @@ namespace cltz {
             bigNumber& setNumber(const unsigned long long&);
 
             //operator to add a number (NECCESARY!) 
-            bigNumber& operator+(const long long&);
+            bigNumber& operator+(long long);
             //operator to substract a number (implement last because it might not be necessasry for this project)
-            bigNumber& operator-(const long long&);
+            bigNumber& operator-(long long);
             //operator to multiply (NECCESARY!)
-            bigNumber& operator*(const long long&);
+            bigNumber& operator*(long long);
             //operator to divide (NECCESARY!)
-            bigNumber& operator/(const long long&);
+            bigNumber& operator/(long long);
 
             //getter for size
             long long size() const { return number_.size(); }

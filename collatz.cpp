@@ -27,4 +27,48 @@ namespace cltz {
 
     }
 
+
+    bigNumber& bigNumber::operator+(long long n) {
+
+        //positioning iterator at the smallest digit
+        auto it = end();
+        it--;
+
+        while(n > 0) {
+
+            //extracting smallest digit
+            int tmp = n%10;
+            n /= 10;
+
+            if(it != begin()) {
+                //adding the number and moving it over if it overflows
+                *it += tmp;
+
+                if(*it > '9') {
+                    *it -= 10;
+                    n += 1;
+                }
+
+                //moving iterator to the next higher digit
+                --it;
+            }
+            else {
+                //if it reaches the begining of the list
+                *it += tmp;
+                if(*it > '9') {
+                    *it -= 10;
+                    number_.push_front('1');
+                }
+                else {
+                    if(n > 0) number_.push_front('0');
+                }
+
+                it = begin();
+            }
+
+        }
+
+        return *this;
+    }
+
 }

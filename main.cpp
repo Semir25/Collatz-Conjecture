@@ -7,7 +7,11 @@ int main() {
 
     cltz::bigNumber n;
 
-    n.genNumber(1000);
+    n.genNumber(2);
+
+    std::cout << n << std::endl;
+
+    n = n + 932;
 
     std::cout << n << std::endl;
 
