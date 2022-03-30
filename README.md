@@ -6,4 +6,5 @@ It is a simple sequence:
 * if the number is odd multiply it by three and add 1
 
 Compile with g++ main.cpp collatz.cpp -o collatz-conjecture
+
 Execute with ./collatz-conjecture
