@@ -7,4 +7,6 @@ It is a simple sequence:
 
 Compile with g++ main.cpp collatz.cpp -o collatz-conjecture
 
-Execute with ./collatz-conjecture
+If you want to input a specific number execute with ./collatz-conjecture s <your_number_here>
+
+If you want to generate a random number with specific length execute with ./collatx-conjecture g <number_of_digits>
