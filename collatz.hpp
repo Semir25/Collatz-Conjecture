@@ -2,6 +2,7 @@
 #pragma once
 #include<list>
 #include<iostream>
+#include<string>
 
 namespace cltz {
 
@@ -24,7 +25,11 @@ namespace cltz {
             //if a number already exists delete it
             bigNumber& genNumber(unsigned int);
             //method to push back a digit one number at a time (to increase the number one digit at a time)
-            bigNumber& push_back(const char&);
+            bigNumber& push_back(const char& c) {
+                number_.push_back(c);
+                return *this;
+            }
+
             //method to pop last digit (not neccessary) 
             bigNumber& pop_back() {
                 number_.pop_back();
@@ -37,7 +42,7 @@ namespace cltz {
             }
             //method to set number_ from a value (for smaller numbers, not necessary, will make testing a lot easier, will require for loops and division) 
             //if a number already exists delete it
-            bigNumber& setNumber(unsigned long long);
+            bigNumber& setNumber(const std::string&);
 
             //operator to add a number (NECCESARY!) 
             bigNumber& operator+(long long);

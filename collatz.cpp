@@ -19,18 +19,22 @@ namespace cltz {
 
     } 
 
-    bigNumber& bigNumber::setNumber(unsigned long long n) {
+    bigNumber& bigNumber::setNumber(const std::string& s) {
         number_.clear();
 
-        if(n == 0) {
-            number_.push_front('0');
-            return *this;
-        }
+        /* if(n == 0) { */
+        /*     number_.push_front('0'); */
+        /*     return *this; */
+        /* } */
 
-        while(n > 0) {
-            int tmp = n%10;
-            n /= 10;
-            number_.push_front('0' + tmp);
+        /* while(n > 0) { */
+        /*     int tmp = n%10; */
+        /*     n /= 10; */
+        /*     number_.push_front('0' + tmp); */
+        /* } */
+
+        for(int i = 0; i < s.size(); ++i) {
+            push_back(s[i]);
         }
 
         return *this;
@@ -167,10 +171,10 @@ namespace cltz {
   void cltz::collatz_conjecture(bigNumber& number){
 
     bigNumber repetition;
-    repetition.setNumber(0);
+    repetition.setNumber("1");
 
     while(number != 1){
-      std::cout << repetition << ". number: " << number<< std::endl;
+        std::cout << repetition << " number: " << number << std::endl;
       if (number.is_even()) {
         number = number/2;
       }else if(number.is_odd()){
@@ -178,5 +182,5 @@ namespace cltz {
       }
       repetition = repetition + 1 ;
     }
-    std::cout << repetition << ". number: " << number<< std::endl;
+    std::cout << repetition << " number: " << number << std::endl;
   }
